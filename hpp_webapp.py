@@ -8,7 +8,7 @@ import numpy as np
 import pickle
 import streamlit as st 
 
-loaded_model = pickle.load(open('D:/Git-Hub projects/House-Price-Prediction/trained_model.pkl','rb'))
+loaded_model = pickle.load(open('trained_model.pkl','rb'))
 
 def house_price_prediction(input_data):
   #changing input data to numpy array
@@ -16,7 +16,7 @@ def house_price_prediction(input_data):
   #reshaping the array
   input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
   prediction = loaded_model.predict(input_data_reshaped)
-  return(prediction)
+  return(prediction[0])
 
 
 def main():
